@@ -18,15 +18,15 @@ OBJECTIF 1: Réalisation d’une carte des ombres, dépendant de l’heure de la
 
 
 OBJECTIF 2: Calcul de parcours fraîcheur.
-Déterminer la température “perdue” lorsqu’on est à l’ombre
-Mettre en place un algorithme déterminant le meilleur chemin, avec prise en compte du temps de trajet, de la température, et potentiellement d’autres paramètres (déterminer une pondération).
+- Déterminer la température “perdue” lorsqu’on est à l’ombre
+- Mettre en place un algorithme déterminant le meilleur chemin, avec prise en compte du temps de trajet, de la température, et potentiellement d’autres paramètres (déterminer une pondération).
 
 
 OBJECTIF 3: Déterminer les zones à végétaliser de façon prioritaire.
-Nécessite des données sur les trajets les plus empruntés par les usagers
-Croiser les trajets les plus empruntés et les trajets les moins ombragés
+- Nécessite des données sur les trajets les plus empruntés par les usagers
+- Croiser les trajets les plus empruntés et les trajets les moins ombragés
 
 
 OBJECTIFS ANNEXES:
-Réfléchir à un moyen d’acquérir des données pour mesurer les températures et confirmer le modèle de simulation.
+- Réfléchir à un moyen d’acquérir des données pour mesurer les températures et confirmer le modèle de simulation.
 
