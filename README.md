@@ -30,3 +30,9 @@ OBJECTIF 3: Déterminer les zones à végétaliser de façon prioritaire.
 OBJECTIFS ANNEXES:
 - Réfléchir à un moyen d’acquérir des données pour mesurer les températures et confirmer le modèle de simulation.
 
+## Fichiers 
+
+* `README.md` : Ce fichier est celui que vous êtes en train de lire, il explique comment s'y retrouver dans le GitHub.
+* `data` : Ce dossier contient les données utilisées par les différents fichiers
+* `import_data.py` : Ce programme python contient des fonctions permettant d'importer des données
+
