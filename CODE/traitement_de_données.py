@@ -1,16 +1,19 @@
-#FONCTIONS DE GENERATION DES OMBRES :
+## IMPORTATIONS ##
     
-from datetime import datetime, timedelta
+from datetime import datetime
 from t4gpd.commons.DatetimeLib import DatetimeLib
 from t4gpd.sun.STHardShadow import STHardShadow
-
+from t4gpd.demos.GeoDataFrameDemos import GeoDataFrameDemos
+#from shapely import geometry
 import matplotlib.pyplot as plt
-
 from import_data import *
+
+
+## FONCTIONS DE GENERATION DES OMBRES ##
 
 def calcul_ombre(date, gdf):
     '''calcul l'ombre à la date et l'heure indiquée des structures 
-    contenues dans data (arbres ou batiments)'''
+    contenues dans le GeoDataFrame gdf (arbres ou batiments)'''
     gdf_ombre=STHardShadow(gdf, date, 
                        occludersElevationFieldname='HAUTEUR',
                        altitudeOfShadowPlane=0, 
@@ -18,13 +21,7 @@ def calcul_ombre(date, gdf):
     return(gdf_ombre)
 
 
-#TEST :
-    
-from t4gpd.demos.GeoDataFrameDemos import GeoDataFrameDemos
-#from shapely import geometry
-
-test_buildings = GeoDataFrameDemos.districtRoyaleInNantesBuildings()
-date = datetime(2021, 10, 13, 13)
+## AFFICHAGE DES DONNEES ##
 
 def mapping(buildings, shadow=None):
     '''fonction pour les tests d'affichage des batiments et potentiellement d'une couche d'ombre'''
@@ -35,8 +32,11 @@ def mapping(buildings, shadow=None):
     plt.axis('off')
     plt.show()
     
-test_shadow = calcul_ombre(date, test_buildings)
+## TEST ##
 
+test_buildings = GeoDataFrameDemos.districtRoyaleInNantesBuildings()
+date = datetime(2021, 10, 13, 13)    
+test_shadow = calcul_ombre(date, test_buildings)
 mapping(test_buildings, test_shadow)
 
 
