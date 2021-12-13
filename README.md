@@ -35,4 +35,5 @@ OBJECTIFS ANNEXES:
 * `README.md` : Ce fichier est celui que vous êtes en train de lire, il explique comment s'y retrouver dans le GitHub.
 * `data` : Ce dossier contient les données utilisées par les différents fichiers
 * `import_data.py` : Ce programme python contient des fonctions permettant d'importer des données
+* `traitement_de_données.py` : Ce programme python contient les fonctions permettant de faire des calculs à partir des données : ombres...
 
