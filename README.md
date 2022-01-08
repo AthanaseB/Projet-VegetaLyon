@@ -7,10 +7,11 @@ Nous désirons également déterminer les zones qui devraient être végétalis�
 Nous avons défini plusieurs objectifs pour mener à bien ce projet:
 
 OBJECTIF 1: Réalisation d’une carte des ombres, dépendant de l’heure de la journée ainsi que de la date, sur les rues de la zone d’étude.
-[Done] Délimiter la zone d’étude
-[Done] Recenser les données à disposition & données qui pourraient nous être utiles
-[Done] Localiser les sources d’ombre dans la zone d’étude (Arbres, Bâtiments) et leurs caractéristiques (forme, hauteur)
-[done] Calcul de la projection des ombres au sol (contacter Thomas Leduc à propos d’une extension permettant de faire ce calcul)
+
+- [Done] Délimiter la zone d’étude
+- [Done] Recenser les données à disposition & données qui pourraient nous être utiles
+- [Done] Localiser les sources d’ombre dans la zone d’étude (Arbres, Bâtiments) et leurs caractéristiques (forme, hauteur)
+- [Done] Calcul de la projection des ombres au sol (contacter Thomas Leduc à propos d’une extension permettant de faire ce calcul)
 - Réalisation d’une carte des ombres des bâtiments  (à une date et heure précise, puis de cartes pour chaque heure)
 - Réalisation d’une carte des ombres de la végétation (à une date et heure précise, puis de cartes pour chaque heure)
 - Réalisation d’une carte des ombres totale  (à une date et heure précise, puis de cartes pour chaque heure)
