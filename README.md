@@ -37,4 +37,5 @@ OBJECTIFS ANNEXES:
 * `data` : Ce dossier contient les données utilisées par les différents fichiers
 * `import_data.py` : Ce programme python contient des fonctions permettant d'importer des données
 * `traitement_de_données.py` : Ce programme python contient les fonctions permettant de faire des calculs à partir des données : ombres...
+* `test_t4gpd.ipynb` : Ce Jupyter Notebook permet de tester la bonne execution du module t4gpd servant au calcul d'ombre.
 
