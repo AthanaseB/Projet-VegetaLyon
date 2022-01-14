@@ -87,7 +87,16 @@ def building_to_gdf(gsv):
     gdf = gdf.to_crs(2154)
     return(gdf)
 
-def path_to_gdf(path_arbre, path_building):
+def road_to_gdf(gsv):
+    '''Transforme un dictionnaire en GeoDataFrame'''
+    tab=[]
+    #A completer lorsque les donnees seront connues
+    df = pd.DataFrame(tab)
+    gdf = geopandas.GeoDataFrame(df, crs=4171)
+    gdf = gdf.to_crs(2154)
+    return(gdf)
+    
+def path_to_gdf(path_arbre, path_building patg_road=None):
     gsv_arbre = lecteur(path_arbre)
     gsv_arbre = deplieur_1(gsv_arbre)
     gsv_arbre = deplieur_2(gsv_arbre)
