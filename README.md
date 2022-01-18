@@ -20,6 +20,7 @@ OBJECTIF 1: Réalisation d’une carte des ombres, dépendant de l’heure de la
 
 OBJECTIF 2: Calcul de parcours fraîcheur.
 - Déterminer la température “perdue” lorsqu’on est à l’ombre
+- Dans un premier temps déterminer manuellement des parcours fraicheur pour des heures types en été ou en hiver
 - Mettre en place un algorithme déterminant le meilleur chemin, avec prise en compte du temps de trajet, de la température, et potentiellement d’autres paramètres (déterminer une pondération).
 
 
@@ -38,4 +39,5 @@ OBJECTIFS ANNEXES:
 * `import_data.py` : Ce programme python contient des fonctions permettant d'importer des données
 * `traitement_de_données.py` : Ce programme python contient les fonctions permettant de faire des calculs à partir des données : ombres...
 * `test_t4gpd.ipynb` : Ce Jupyter Notebook permet de tester la bonne execution du module t4gpd servant au calcul d'ombre.
+* `test_import_auto.ipynb`: Ce Jupyter Notebook explique la démarche utiliser pour le programme d'import de données
 
