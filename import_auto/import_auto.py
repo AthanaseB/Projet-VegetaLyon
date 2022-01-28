@@ -2,6 +2,7 @@ import json
 from shapely import geometry
 import pandas as pd
 import geopandas
+import time
 
 def lecteur(path):
     ''' Ouvre un fichier json en dictionnaire'''
@@ -58,6 +59,8 @@ def deplieur_2(gsv):
                         geom = geometry.Polygon(row['geometry']['coordinates'][0])
                     elif type_geom == 'MultiPolygon':
                         geom = geometry.Polygon(row['geometry']['coordinates'][0][0])
+                    elif type_geom == 'MultiLineString':
+                        geom = geometry.LineString(row['geometry']['coordinates'][0][0])
                     dic['geometry'] = geom
                 tab.append(dic)
         return(tab)
@@ -90,13 +93,14 @@ def building_to_gdf(gsv):
 def road_to_gdf(gsv):
     '''Transforme un dictionnaire en GeoDataFrame'''
     tab=[]
-    #A completer lorsque les donnees seront connues
+    for i in range(0, len(gsv)):
+        geom = gsv[i]['geometry']
+        tab.append({'index': i, 'geometry': geom})
     df = pd.DataFrame(tab)
-    gdf = geopandas.GeoDataFrame(df, crs=4171)
-    gdf = gdf.to_crs(2154)
+    gdf = geopandas.GeoDataFrame(df, crs=2154)
     return(gdf)
     
-def path_to_gdf(path_arbre, path_building patg_road=None):
+def path_to_gdf(path_arbre, path_building, path_road=None):
     gsv_arbre = lecteur(path_arbre)
     gsv_arbre = deplieur_1(gsv_arbre)
     gsv_arbre = deplieur_2(gsv_arbre)
@@ -107,4 +111,14 @@ def path_to_gdf(path_arbre, path_building patg_road=None):
     
     gdf_arbre = arbre_to_gdf(gsv_arbre)
     gdf_building = building_to_gdf(gsv_building)
-    return(gdf_arbre, gdf_building)
+    
+    if path_road is not None:
+        gsv_road = lecteur(path_road)
+        gsv_road = deplieur_1(gsv_road)
+        gsv_road = deplieur_2(gsv_road)
+        
+        gdf_road = road_to_gdf(gsv_road)
+        
+        return(gdf_arbre, gdf_building, gdf_road)
+    else :
+        return(gdf_arbre, gdf_building)
