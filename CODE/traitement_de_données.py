@@ -11,14 +11,17 @@ from import_data import *
 
 ## FONCTIONS DE GENERATION DES OMBRES ##
 
-def calcul_ombre(date, gdf):
+def calcul_ombre(date, bati = None, arb= None):
     '''calcul l'ombre à la date et l'heure indiquée des structures 
-    contenues dans le GeoDataFrame gdf (arbres ou batiments)'''
-    gdf_ombre=STHardShadow(gdf, date, 
+    contenues dans les GeoDataFrame passées en paramêtre (arbres ou batiments)'''
+    if bati is not None:
+        ombre_bati=STHardShadow(bati, date, 
                        occludersElevationFieldname='HAUTEUR',
                        altitudeOfShadowPlane=0, 
                        aggregate=True, tz=None, model='pysolar').run()
-    return(gdf_ombre)
+    if arb is not None:
+        ombre_arb=STTreeHardShadow(arb, date)
+    return(ombre_bati)
 
 
 ## AFFICHAGE DES DONNEES ##
