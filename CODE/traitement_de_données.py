@@ -20,13 +20,18 @@ def calcul_ombre(date, bati = None, arb= None):
                        altitudeOfShadowPlane=0, 
                        aggregate=True, tz=None, model='pysolar').run()
     if arb is not None:
-        ombre_arb=STTreeHardShadow(arb, date)
-    return(ombre_bati)
+        ombre_arb=STTreeHardShadow(arb, date,
+                                  treeHeightFieldname ='hauteurtotale',
+                                  treeCrownRadiusFieldname ='rayon',
+                                  altitudeOfShadowPlane = 0,
+                                  agregate = True, tz = None, model = 'pysolar').run()
+    ombre_tot = 
+    return(ombre_tot)
 
 
 ## AFFICHAGE DES DONNEES ##
 
-def mapping(buildings, shadow=None):
+def mapping(buildings, shadow=None, road=None):
     '''fonction pour les tests d'affichage des batiments et potentiellement d'une couche d'ombre'''
     _, basemap = plt.subplots(figsize=(1.5 * 8.26, 1.5 * 8.26))
     if shadow is not None:
