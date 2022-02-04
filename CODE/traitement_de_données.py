@@ -25,17 +25,20 @@ def calcul_ombre(date, bati = None, arb= None):
                                   treeCrownRadiusFieldname ='rayon',
                                   altitudeOfShadowPlane = 0,
                                   agregate = True, tz = None, model = 'pysolar').run()
-    ombre_tot = 
+    ombre_tot = ombre_bati
+    ombre_tot.append(ombre_arb)
     return(ombre_tot)
 
 
 ## AFFICHAGE DES DONNEES ##
 
-def mapping(buildings, shadow=None, road=None):
+def mapping(buildings, shadows=None, roads=None):
     '''fonction pour les tests d'affichage des batiments et potentiellement d'une couche d'ombre'''
     _, basemap = plt.subplots(figsize=(1.5 * 8.26, 1.5 * 8.26))
-    if shadow is not None:
-        shadow.plot(ax=basemap, color='orange', edgecolor='red', alpha=0.4)
+    if shadows is not None:
+        shadows.plot(ax=basemap, color='orange', edgecolor='red', alpha=0.4)
+    if roads is not None:
+        roads.plot(aw=basemap, color = 'black', )
     buildings.plot(ax=basemap, color='lightgrey', edgecolor='dimgrey')
     plt.axis('off')
     plt.show()
