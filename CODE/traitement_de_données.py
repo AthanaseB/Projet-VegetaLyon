@@ -3,6 +3,7 @@
 from datetime import datetime
 from t4gpd.commons.DatetimeLib import DatetimeLib
 from t4gpd.sun.STHardShadow import STHardShadow
+from t4gpd.sun.STTreeHardShadow import STTreeHardShadow
 from t4gpd.demos.GeoDataFrameDemos import GeoDataFrameDemos
 #from shapely import geometry
 import matplotlib.pyplot as plt
@@ -16,18 +17,27 @@ def calcul_ombre(date, bati = None, arb= None):
     contenues dans les GeoDataFrame passées en paramêtre (arbres ou batiments)'''
     if bati is not None:
         ombre_bati=STHardShadow(bati, date, 
-                       occludersElevationFieldname='HAUTEUR',
+                       occludersElevationFieldname='hauteur',
                        altitudeOfShadowPlane=0, 
                        aggregate=True, tz=None, model='pysolar').run()
     if arb is not None:
         ombre_arb=STTreeHardShadow(arb, date,
-                                  treeHeightFieldname ='hauteurtotale',
+                                  treeHeightFieldname ='hauteur',
                                   treeCrownRadiusFieldname ='rayon',
                                   altitudeOfShadowPlane = 0,
-                                  agregate = True, tz = None, model = 'pysolar').run()
-    ombre_tot = ombre_bati
-    ombre_tot.append(ombre_arb)
-    return(ombre_tot)
+                                  tz = None, model = 'pysolar').run()
+    if bati is not None:
+        if arb is not None:
+            return(ombre_bati,ombre_arb)
+        else:
+            return(ombre_bati)
+    
+    elif arb is not None:
+        return(ombre_arb)
+    else:
+        print("pas de données indiquées")
+
+    
 
 
 ## AFFICHAGE DES DONNEES ##
@@ -44,11 +54,12 @@ def mapping(buildings, shadows=None, roads=None):
     plt.show()
     
 ## TEST ##
-
+"""
 test_buildings = GeoDataFrameDemos.districtRoyaleInNantesBuildings()
 date = datetime(2021, 10, 13, 13)    
 test_shadow = calcul_ombre(date, test_buildings)
 mapping(test_buildings, test_shadow)
+"""
 
 
 
